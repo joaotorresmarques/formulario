@@ -25,6 +25,7 @@ export default class appNavigation extends Component {
   render() {
     return (
       <View style={styles.container}>
+      <View style={styles.containerBetween}>
 
         <Text style={styles.title}>Cadastro de Clientes</Text>
         <Text style={styles.label}>Nome</Text>
@@ -47,7 +48,8 @@ export default class appNavigation extends Component {
         />
 
         <Text style={styles.label}>Sexo</Text>
-        <Picker
+        <Picker 
+        
           selectedValue={this.state.sexo}
           onValueChange={(itemValue, itemIndex) => this.setState({ sexo: itemValue })}
         >
@@ -57,6 +59,7 @@ export default class appNavigation extends Component {
 
         <Text style={styles.label}>Peso</Text>
         <Slider
+        
           minimumValue={50}
           maximumValue={150}
           minimumTrackTintColor="#aeae"
@@ -74,13 +77,15 @@ export default class appNavigation extends Component {
           <Switch
 
             value={this.state.termos}
-            thumbColor={(this.state.termos) ? "#f5dd4b" : "#f4f3f4"}
+            thumbColor={(this.state.termos) ? "#7fc7f4" : "#f4f3f4"}
             onValueChange={(valor) => this.setState({ termos: valor })}
           />
         </View>
-        <View style={styles.button}>
+        
+      </View>
+      <View style={styles.button}>
           {/* COLOCAR ESSE BOTAO FIXO LA EM BAIXO */}
-          <Button color= "#f194ff" title="Cadastrar" onPress={() => this.cadastrar()} />
+          <Button style={{padding:30}} title="Cadastrar" onPress={() => this.cadastrar()} />
         </View>
 
       </View>
@@ -91,10 +96,14 @@ export default class appNavigation extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    
+    backgroundColor: "#EBEEF5"
+
+  },
+  containerBetween:{
     paddingTop: 10,
     paddingLeft: 10,
-    paddingRight: 10
-
+    paddingRight: 10,
   },
   input: {
     borderWidth: 1,
@@ -116,8 +125,10 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   button: {
-    marginTop: 10,
-    padding: 30
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'stretch',
+    
   }
 
 })
